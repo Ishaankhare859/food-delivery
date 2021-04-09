@@ -1,0 +1,75 @@
+body {
+  font-family: "Bangers", cursive;
+  -webkit-font-smoothing: antialised;
+  color: #232323;
+  height: 4800px;
+}
+
+nav li:last-child a {
+  background-color: #FE5F1e;
+}
+
+nav li:last-child a:hover {
+  background: #b23301;
+}
+
+nav li a {
+  transition: all 0.3s ease-in-out;
+}
+
+nav li a:hover {
+  color: #FE5F1e;
+}
+
+section.hero {
+  background: #f8f8f8;
+}
+
+.size {
+  background: #f8f8f8;
+}
+
+.add-to-cart {
+  border: 2px solid #FE5F1e;
+  color: #FE5F1e;
+  transition: all 0.3s ease-in-out;
+}
+
+.add-to-cart:hover {
+  background: #FE5F1e;
+  border-color: #FFF;
+  color: #FFF;
+}
+
+.btn-primary {
+  background: #FE5F1e;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background: #b23301;
+}
+
+section.cart {
+  background: #f8f8f8;
+}
+
+section.cart .amount {
+  color: #FE5F1e;
+}
+
+section.signin {
+  background: #f8f8f8;
+  min-height: calc(100vh - 86px);
+}
+
+.forgot {
+  background: #f8f8f8;
+  color: #FE5F1e;
+  transition: all 0.3s ease-in-out;
+}
+
+.forgot:hover {
+  background: #b23301;
+}
+
