@@ -6,7 +6,8 @@ const path = require('path');
 app.get("/",(req, res) =>{
     res.render('home');
 });
-
+//assests
+app.use(express.static('public'));
 app.use(expressLayout);
 app.set('views', path.join(__dirname, '/resources/views'))
 app.set('view engine', 'ejs');
