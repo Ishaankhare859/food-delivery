@@ -11,110 +11,114 @@
 </div>
 </section>
 <section class="menu container mx-auto py-8">
-
+ 
 </section>
+
 <section class="menu container mx-auto py-8"> 
     <h1 class="text-xl font-bold mb-8">Indian</h1>
+
     <div class="grid grid-cols-4 col-gap-12 row-gap-20">
-        <div>
-            <img src="/img/kadhaipaneer.png" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
+
+    <% dishes.forEach(function(dish) {%>
+    <% if(dish.class === "Indian"){ %>
+     
+
+            <div class="w-64">
+                <img src="/img/<%= dish.image %>" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
+                <div class="text-center">
+                    <h2 class="mb-4 text-lg"><%= dish.name %></h2>
+                    <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= dish.size %></span>
+                    <div class="flex items-center justify-around mt-6">
+                        <span class="font-bod text-lg"><%= dish.price %></span>
+                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                            <span>+  </span>
+                            <span class="ml-4">Add</span>
+                        </button>                                                                                   
+                    </div>
+                </div>
+            </div>
+      
+            <% } %>
+            <% }) %>
+        </div>
+    </section>
+    <section class="menu container mx-auto py-8"> 
+        <h1 class="text-xl font-bold mb-8">Chineese</h1>
+
+        <div class="grid grid-cols-4 col-gap-12 row-gap-20">
+               <% dishes.forEach(function(dish) {%>
+    <% if(dish.class === "Chineese"){ %>
+       
+        <div class="w-64">
+            <img src="/img/<%= dish.image %>" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
             <div class="text-center">
-                <h2 class="mb-4 text-lg">Kadhai Paneer</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">Half</span>
+                <h2 class="mb-4 text-lg"><%= dish.name %></h2>
+                <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= dish.size %></span>
                 <div class="flex items-center justify-around mt-6">
-                    <span class="font-bod text-lg">Rs 200</span>
+                    <span class="font-bod text-lg"><%= dish.price %></span>
                     <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                         <span>+  </span>
-                        <span class=",l-4">Add</span>
-                    </button>
+                        <span class="ml-4">Add</span>
+                    </button>                                                                                   
                 </div>
             </div>
         </div>
-        <div>
-            <img src="/img/kadhaipaneer.png" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Kadhai Paneer</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">Half</span>
-                <div class="flex items-center justify-around mt-6">
-                    <span class="font-bod text-lg">200</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+  </span>
-                        <span class=",l-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div>
-            <img src="/img/kadhaipaneer.png" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Kadhai Paneer</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">Half</span>
-                <div class="flex items-center justify-around mt-6">
-                    <span class="font-bod text-lg">200</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+  </span>
-                        <span class=",l-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div>
-            <img src="/img/kadhaipaneer.png" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Kadhai Paneer</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">Half</span>
-                <div class="flex items-center justify-around mt-6">
-                    <span class="font-bod text-lg">200</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+  </span>
-                        <span class=",l-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div>
-            <img src="/img/kadhaipaneer.png" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Kadhai Paneer</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">Half</span>
-                <div class="flex items-center justify-around mt-6">
-                    <span class="font-bod text-lg">200</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+  </span>
-                        <span class=",l-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div>
-            <img src="/img/kadhaipaneer.png" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Kadhai Paneer</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">Half</span>
-                <div class="flex items-center justify-around mt-6">
-                    <span class="font-bod text-lg">200</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+  </span>
-                        <span class=",l-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div>
-            <img src="/img/kadhaipaneer.png" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Kadhai Paneer</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">Half</span>
-                <div class="flex items-center justify-around mt-6">
-                    <span class="font-bod text-lg">200</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+  </span>
-                        <span class=",l-4">Add</span>
-                    </button>
-                </div>
+  
+    <% } %>
+    <% }) %>
+</div>
+</section>
+<section class="menu container mx-auto py-8"> 
+    <h1 class="text-xl font-bold mb-8">Chineese</h1>
+
+    <div class="grid grid-cols-4 col-gap-12 row-gap-20">
+           <% dishes.forEach(function(dish) {%>
+<% if(dish.class === "Italian"){ %>
+   
+    <div class="w-64">
+        <img src="/img/<%= dish.image %>" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
+        <div class="text-center">
+            <h2 class="mb-4 text-lg"><%= dish.name %></h2>
+            <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= dish.size %></span>
+            <div class="flex items-center justify-around mt-6">
+                <span class="font-bod text-lg"><%= dish.price %></span>
+                <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                    <span>+  </span>
+                    <span class="ml-4">Add</span>
+                </button>                                                                                   
             </div>
         </div>
     </div>
+
+<% } %>
+<% }) %>
+</div>
+</section>
+<section class="menu container mx-auto py-8"> 
+    <h1 class="text-xl font-bold mb-8">Chineese</h1>
+
+    <div class="grid grid-cols-4 col-gap-12 row-gap-20">
+           <% dishes.forEach(function(dish) {%>
+<% if(dish.class === "Thai"){ %>
+   
+    <div class="w-64">
+        <img src="/img/<%= dish.image %>" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
+        <div class="text-center">
+            <h2 class="mb-4 text-lg"><%= dish.name %></h2>
+            <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= dish.size %></span>
+            <div class="flex items-center justify-around mt-6">
+                <span class="font-bod text-lg"><%= dish.price %></span>
+                <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                    <span>+  </span>
+                    <span class="ml-4">Add</span>
+                </button>                                                                                   
+            </div>
+        </div>
+    </div>
+
+<% } %>
+<% }) %>
+</div>
 </section>
 <script src="/js/app.js"></script>
 </body>
