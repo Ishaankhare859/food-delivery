@@ -30,7 +30,7 @@
                     <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= dish.size %></span>
                     <div class="flex items-center justify-around mt-6">
                         <span class="font-bod text-lg"><%= dish.price %></span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                        <button  data-dish="<%= JSON.stringify(dish) %>"  class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                             <span>+  </span>
                             <span class="ml-4">Add</span>
                         </button>                                                                                   
@@ -56,7 +56,7 @@
                 <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= dish.size %></span>
                 <div class="flex items-center justify-around mt-6">
                     <span class="font-bod text-lg"><%= dish.price %></span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                    <button  data-dish="<%= JSON.stringify(dish) %>"  class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                         <span>+  </span>
                         <span class="ml-4">Add</span>
                     </button>                                                                                   
@@ -69,7 +69,7 @@
 </div>
 </section>
 <section class="menu container mx-auto py-8"> 
-    <h1 class="text-xl font-bold mb-8">Chineese</h1>
+    <h1 class="text-xl font-bold mb-8">Italian</h1>
 
     <div class="grid grid-cols-4 col-gap-12 row-gap-20">
            <% dishes.forEach(function(dish) {%>
@@ -82,7 +82,7 @@
             <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= dish.size %></span>
             <div class="flex items-center justify-around mt-6">
                 <span class="font-bod text-lg"><%= dish.price %></span>
-                <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                <button   data-dish="<%= JSON.stringify(dish) %>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                     <span>+  </span>
                     <span class="ml-4">Add</span>
                 </button>                                                                                   
@@ -95,7 +95,7 @@
 </div>
 </section>
 <section class="menu container mx-auto py-8"> 
-    <h1 class="text-xl font-bold mb-8">Chineese</h1>
+    <h1 class="text-xl font-bold mb-8">Thai</h1>
 
     <div class="grid grid-cols-4 col-gap-12 row-gap-20">
            <% dishes.forEach(function(dish) {%>
@@ -108,7 +108,8 @@
             <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= dish.size %></span>
             <div class="flex items-center justify-around mt-6">
                 <span class="font-bod text-lg"><%= dish.price %></span>
-                <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                <button data-dish="<%= JSON.stringify(dish) %>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                   
                     <span>+  </span>
                     <span class="ml-4">Add</span>
                 </button>                                                                                   

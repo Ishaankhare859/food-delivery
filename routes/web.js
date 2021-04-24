@@ -9,6 +9,7 @@ function initRoutes(app){
     app.get("/signup",authController().signup);
     app.get("/signin",authController().signin);
     app.get("/cart",cartController().index);
+    app.post('/update-cart', cartController().update)
 
 }
 module.exports=initRoutes;
