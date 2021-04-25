@@ -8,7 +8,7 @@ const path = require('path');
 const flash = require('express-flash');
 const Mongodbstore = require('connect-mongo');
 const dotenv = require("dotenv");
-
+const passport = require('passport');
 dotenv.config();
 //database connection
 const url = 'mongodb+srv://ishaan:pr25jNshausztS0R@cluster0.vuhnr.mongodb.net/fooddelivery?retryWrites=true&w=majority';
@@ -37,16 +37,23 @@ app.use(session({
     saveUninitialized: false,
     cookie: {maxAge: 1000 * 60 * 60 * 24}
 }))
+
+//passport config
+const passportInit = require('./app/config/passport')
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 //global middleware
 app.use((req,res, next)=>{
     res.locals.session = req.session;
+    res.locals.user = req.user;
     next();
 })
-
 //assests
 app.use(express.static('public'));
 app.use(expressLayout);
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 app.use(flash());
 app.set('views', path.join(__dirname, '/resources/views'))
 app.set('view engine', 'ejs');
