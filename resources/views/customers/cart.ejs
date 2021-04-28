@@ -5,9 +5,9 @@
             <h1 class="font-bold ml-4 text-2xl">Order Summary</h1>
         </div>
 
-        <% if(session.cart) {%>
+        <% if(user && user.items.totalQty) {%>
         <div class="food-list">
-            <% for(let dish of Object.values(session.cart.items)) { %>
+            <% for(let dish of Object.values(user.items.dishes)) { %>
 
             <div class="flex items-center my-8">
                 <img class="w-24" src="/img/<%= dish.item.image %>" alt="uh oh! Image not found">
@@ -26,21 +26,24 @@
         <div class="text-right py-4">
                 <div>
                     <span class="text-lg font-bold"> Total Amount:</span>
-                    <span class="amount text-2xl font-bold ml-2">Rs <%= session.cart.totalPrice %></span>
+                    <span class="amount text-2xl font-bold ml-2">Rs <%= user.items.totalPrice %></span>
                 </div>
                 <div>
-                    <form action="" class="mt-12">
-                        <input class="border border-gray-40 p-2 w-1/2 mb-4" placeholder="Phone Number" type="text">
-                        <input class="border border-gray-40 p-2 w-1/2 mb-4" placeholder="Address" type="text">
-                    <div>
+                    <form action="/orders" method="POST" class="mt-12">
+                        <input name="phone" class="border border-gray-40 p-2 w-1/2 mb-4" placeholder="Phone Number" type="text">
+                        <input name="address" class="border border-gray-40 p-2 w-1/2 mb-4" placeholder="Address" type="text">
+                        <% if(user) {%>
+                        <div>
                         <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6" type="submit">
-                                Order Now
+                         Order Now 
                         </button>
                     </div>
                     </form>
+                    <% } else { %>
                 </div>
-                <a href="" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Login to continue</a>
+                <a href="/signin" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Login to continue</a>
         </div>
+        <% } %>
     </div>
     <% } else { %>
 

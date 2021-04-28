@@ -23,6 +23,7 @@
     "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
     "fs": "*",
+    "moment": "^2.29.1",
     "mongoose": "^5.12.3",
     "noty": "*",
     "passport": "^0.4.1",

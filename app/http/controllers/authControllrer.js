@@ -2,6 +2,9 @@ const User = require('../../models/user');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 function authController(){
+    const _getRedirect=(req)=>{
+        return req.user.role === 'admin' ? '/admin/orders' : '/'
+    }
     return{
         signin (req,res){
             res.render('auth/signin');
@@ -21,7 +24,7 @@ function authController(){
                         req.flash('error', info.message)
                     return next(err);
                     }
-                    return res.redirect('/');
+                    return res.redirect(_getRedirect(req));
                 })
 
 
@@ -42,6 +45,7 @@ function authController(){
                 return res.redirect('/signup');
             }
 // if email already eixsts
+
 
 User.exists({email: email}, (err, result)=>{
     if(result){
@@ -70,15 +74,16 @@ user.save().then((user) =>{
 return res.redirect('/')
 })
 .catch(err =>{
+    console.log(err);
     req.flash('error', 'Something went wrong!');
         return res.redirect('/signup');
     });
 
         },
-        logout(req, res){
+       async logout(req, res){
             // req.session.destroy()
 
-            req.session.destroy();
+          await  req.session.destroy();
             //  res.send("logged out", 401);
 
             return res.redirect('/');
