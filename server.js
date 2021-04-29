@@ -9,6 +9,7 @@ const flash = require('express-flash');
 const Mongodbstore = require('connect-mongo');
 const dotenv = require("dotenv");
 const passport = require('passport');
+const Emitter = require('events')
 dotenv.config();
 //database connection
 const url = 'mongodb+srv://ishaan:pr25jNshausztS0R@cluster0.vuhnr.mongodb.net/fooddelivery?retryWrites=true&w=majority';
@@ -25,6 +26,10 @@ connection.once('open', ()=>{
 //     mongooseConnection: connection,
 //     collection: 'sessions'  
 // })
+
+//eventemitter
+const eventEmitter = new Emitter()
+app.set('eventEmitter', eventEmitter);
 // //session config
 app.use(session({
     secret: process.env.COOKIES_SECRET,
@@ -63,6 +68,22 @@ const PORT = process.envPORT || 3002;
 
 require('./routes/web')(app);
 
-app.listen(PORT, ()=>{
+const server= app.listen(PORT, ()=>{
     console.log(`server started on ${ PORT }`);
 });
+
+//socketio connection
+const io = require('socket.io')(server);
+io.on('connection',(socket)=>{
+    socket.on('join', (orderId)=>{
+        socket.join(orderId);
+        console.log(orderId);
+    })
+    console.log(socket.id)
+})
+eventEmitter.on('orderUpdated', (data)=>{
+    io.to(`order_${data.id}`).emit('orderUpdated',data)
+})
+eventEmitter.on('orderPlaced', (data)=>{
+    io.to('adminRoom').emit('orderPlaced', data)
+})

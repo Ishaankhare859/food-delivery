@@ -12,6 +12,8 @@ function orderController(){
 
             //validate req
             const {phone, address}=req.body;
+            console.log(phone)
+            console.log(address)
             if(!phone || !address){
                 req.flash('error', 'All fields are required');
                 return res.redirect('/cart');
@@ -24,7 +26,7 @@ function orderController(){
             })
             order.save()
             .then(result=>{
-              
+              Order.populate(result, {path: 'customerId'},(err, placedOrder)=>{
                 req.user.items = {
                     dishes: {},
                     totalQty: 0,
@@ -39,7 +41,11 @@ function orderController(){
                     }
                  });
                  req.flash('success', 'order placed Successfully');
+                 const eventEmitter = req.app.get('eventEmitter');
+                 eventEmitter.emit('orderPlaced', placedOrder)
                 return res.redirect('/customers/orders');
+              })
+               
             }).catch(err=>{
                 console.log(err);
                return res.redirect('/cart');
@@ -52,6 +58,18 @@ function orderController(){
                  res.header('Cache-Control', 'mo-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0')
             res.render('customers/orders', {orders: orders, moment: moment})
             console.log(orders._id);
+        },
+      async  show(req,res){
+            const order=await Order.findById(req.params.id)
+            //check user and order match
+            //Order.f
+            console.log(order.status)
+            if(req.user._id.toString() === order.customerId.toString()){
+              return  res.render('customers/singleOrder', {order: order})
+            }
+            else{
+                return res.render('/')
+            }
         }
     }
 }
