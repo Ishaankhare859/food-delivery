@@ -63,7 +63,6 @@ function orderController(){
             const order=await Order.findById(req.params.id)
             //check user and order match
             //Order.f
-            console.log(order.status)
             if(req.user._id.toString() === order.customerId.toString()){
               return  res.render('customers/singleOrder', {order: order})
             }

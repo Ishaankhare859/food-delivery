@@ -1,6 +1,8 @@
 import axios from 'axios'
 import Noty from 'noty'
 import {initAdmin} from './admin'
+import {initChat} from './chat'
+
 import moment from 'moment'
 let addToCart = document.querySelectorAll('.add-to-cart');
 let cartCounter = document.querySelector('#cartCounter');
@@ -83,10 +85,48 @@ function updateStatus(order) {
 
 }
 updateStatus(order);
+// let name;
+// let textarea = document.querySelector('#textarea')
+// let messageArea = document.querySelector('.message__area')
+// do {
+//     name = prompt('Please enter your name: ')
+// } while(!name)
 
+// textarea.addEventListener('keyup', (e) => {
+//     if(e.key === 'Enter') {
+//         sendMessage(e.target.value)
+//     }
+// })
+
+// function sendMessage(message) {
+//     let msg = {
+//         user: name,
+//         message: message.trim()
+//     }
+//     // Append 
+//     appendMessage(msg, 'outgoing')
+//     textarea.value = ''
+//     scrollToBottom()
+
+//     // Send to server 
+//     socket.emit('message', msg)
+
+// }
+
+// function appendMessage(msg, type) {
+//     let mainDiv = document.createElement('div')
+//     let className = type
+//     mainDiv.classList.add(className, 'message')
+
+//     let markup = `
+//         <h4>${msg.user}</h4>
+//         <p>${msg.message}</p>
+//     `
+//     mainDiv.innerHTML = markup
+//     messageArea.appendChild(mainDiv)
+// }
 //socket.io
 let socket =io();
-initAdmin(socket)
 //join
 if(order){
     socket.emit('join', `order_${order._id}`)
@@ -95,7 +135,18 @@ if(order){
 let adminAreaPath = window.location.pathname;
 console.log(adminAreaPath);
 if(adminAreaPath.includes('admin')){
+    initAdmin(socket)
+
     socket.emit('join', 'adminRoom');
+}
+
+let chatareaPath = window.location.pathname;
+console.log(chatareaPath);
+if(chatareaPath.includes('chat')){
+    initChat(socket)
+    socket.emit('join', `chat_${order._id}`);
+    
+
 }
 
 socket.on('orderUpdated', (data)=>{
@@ -109,4 +160,13 @@ socket.on('orderUpdated', (data)=>{
         text: data.status,
         progressBar: false
     }).show()
+
 })
+// socket.on('message', (msg) => {
+//     appendMessage(msg, 'incoming')
+//     scrollToBottom()
+// })
+
+// function scrollToBottom() {
+//     messageArea.scrollTop = messageArea.scrollHeight
+// }

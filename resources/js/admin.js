@@ -44,7 +44,7 @@ import Noty from 'noty'
                    <p> ${ order.items.totalPrice } Rs </p> 
                    </div>
                 </td>
-                <td class="border px-4 py-2">${ order.customerId.name }  </td>
+                <td class="border px-4 py-2">chat with <a href="/adminchat/${order._id}"> ${ order.customerId.name } </a></td>
                 <td class="border px-4 py-2">${ order.address }</td>
                 <td class="border px-4 py-2">
                     <div class="inline-block relative w-64">

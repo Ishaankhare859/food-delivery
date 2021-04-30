@@ -82,8 +82,25 @@ io.on('connection',(socket)=>{
     console.log(socket.id)
 })
 eventEmitter.on('orderUpdated', (data)=>{
+    console.log(data)
     io.to(`order_${data.id}`).emit('orderUpdated',data)
 })
 eventEmitter.on('orderPlaced', (data)=>{
+
     io.to('adminRoom').emit('orderPlaced', data)
 })
+eventEmitter.on('message', (msg)=>{
+ 
+    io.to(`chat_${msg.id}`).emit('message', msg)
+    socket.broadcast.emit('message', msg)
+
+
+})
+io.on('connection', (socket) => {
+    console.log('Connected...')
+    socket.on('message', (msg) => {
+ 
+        socket.broadcast.emit('message', msg)
+    })
+
+ })

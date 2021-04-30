@@ -26919,7 +26919,7 @@ function initAdmin(socket) {
 
   function generateMarkup(orders) {
     return orders.map(function (order) {
-      return "\n                <tr>\n                <td class=\"border px-4 py-2 text-green-900\">\n                    <p>".concat(order._id, "</p>\n                    <div>\n                   <p> ").concat(order.items.totalQty, " pcs </p>\n                   <p> ").concat(order.items.totalPrice, " Rs </p> \n                   </div>\n                </td>\n                <td class=\"border px-4 py-2\">").concat(order.customerId.name, "  </td>\n                <td class=\"border px-4 py-2\">").concat(order.address, "</td>\n                <td class=\"border px-4 py-2\">\n                    <div class=\"inline-block relative w-64\">\n                        <form action=\"/admin/order/status\" method=\"POST\">\n                            <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                            <select name=\"status\" onchange=\"this.form.submit()\"\n                                class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                                <option value=\"order_placed\"\n                                    ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                                    Placed</option>\n                                <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                                    Confirmed</option>\n                                <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                                    Prepared</option>\n                                <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                                    Delivered\n                                </option>\n                                <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                                    Completed\n                                </option>\n                            </select>\n                        </form>\n                        <div\n                            class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                            <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                                viewBox=\"0 0 20 20\">\n                                <path\n                                    d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                            </svg>\n                        </div>\n                    </div>\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('hh:mm A'), "\n                </td>\n              \n            </tr>\n        ");
+      return "\n                <tr>\n                <td class=\"border px-4 py-2 text-green-900\">\n                    <p>".concat(order._id, "</p>\n                    <div>\n                   <p> ").concat(order.items.totalQty, " pcs </p>\n                   <p> ").concat(order.items.totalPrice, " Rs </p> \n                   </div>\n                </td>\n                <td class=\"border px-4 py-2\">chat with <a href=\"/adminchat/").concat(order._id, "\"> ").concat(order.customerId.name, " </a></td>\n                <td class=\"border px-4 py-2\">").concat(order.address, "</td>\n                <td class=\"border px-4 py-2\">\n                    <div class=\"inline-block relative w-64\">\n                        <form action=\"/admin/order/status\" method=\"POST\">\n                            <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                            <select name=\"status\" onchange=\"this.form.submit()\"\n                                class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                                <option value=\"order_placed\"\n                                    ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                                    Placed</option>\n                                <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                                    Confirmed</option>\n                                <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                                    Prepared</option>\n                                <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                                    Delivered\n                                </option>\n                                <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                                    Completed\n                                </option>\n                            </select>\n                        </form>\n                        <div\n                            class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                            <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                                viewBox=\"0 0 20 20\">\n                                <path\n                                    d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                            </svg>\n                        </div>\n                    </div>\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('hh:mm A'), "\n                </td>\n              \n            </tr>\n        ");
     }).join('');
   }
 
@@ -26952,13 +26952,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
 /* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _chat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./chat */ "./resources/js/chat.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -27027,7 +27029,7 @@ function updateStatus(order) {
 
     if (dataProp === order.status) {
       stepCompleted = false;
-      time.innerText = moment__WEBPACK_IMPORTED_MODULE_3___default()(order.updatedAt).format('hh:mm A');
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_4___default()(order.updatedAt).format('hh:mm A');
       status.appendChild(time);
 
       if (status.nextElementSibling) {
@@ -27037,10 +27039,43 @@ function updateStatus(order) {
   });
 }
 
-updateStatus(order); //socket.io
+updateStatus(order); // let name;
+// let textarea = document.querySelector('#textarea')
+// let messageArea = document.querySelector('.message__area')
+// do {
+//     name = prompt('Please enter your name: ')
+// } while(!name)
+// textarea.addEventListener('keyup', (e) => {
+//     if(e.key === 'Enter') {
+//         sendMessage(e.target.value)
+//     }
+// })
+// function sendMessage(message) {
+//     let msg = {
+//         user: name,
+//         message: message.trim()
+//     }
+//     // Append 
+//     appendMessage(msg, 'outgoing')
+//     textarea.value = ''
+//     scrollToBottom()
+//     // Send to server 
+//     socket.emit('message', msg)
+// }
+// function appendMessage(msg, type) {
+//     let mainDiv = document.createElement('div')
+//     let className = type
+//     mainDiv.classList.add(className, 'message')
+//     let markup = `
+//         <h4>${msg.user}</h4>
+//         <p>${msg.message}</p>
+//     `
+//     mainDiv.innerHTML = markup
+//     messageArea.appendChild(mainDiv)
+// }
+//socket.io
 
-var socket = io();
-Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])(socket); //join
+var socket = io(); //join
 
 if (order) {
   socket.emit('join', "order_".concat(order._id));
@@ -27050,13 +27085,22 @@ var adminAreaPath = window.location.pathname;
 console.log(adminAreaPath);
 
 if (adminAreaPath.includes('admin')) {
+  Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])(socket);
   socket.emit('join', 'adminRoom');
+}
+
+var chatareaPath = window.location.pathname;
+console.log(chatareaPath);
+
+if (chatareaPath.includes('chat')) {
+  Object(_chat__WEBPACK_IMPORTED_MODULE_3__["initChat"])(socket);
+  socket.emit('join', "chat_".concat(order._id));
 }
 
 socket.on('orderUpdated', function (data) {
   var updatedOrder = _objectSpread({}, order);
 
-  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_3___default()().format();
+  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_4___default()().format();
   updatedOrder.status = data.status;
   updateStatus(updatedOrder);
   new noty__WEBPACK_IMPORTED_MODULE_1___default.a({
@@ -27065,7 +27109,83 @@ socket.on('orderUpdated', function (data) {
     text: data.status,
     progressBar: false
   }).show();
-});
+}); // socket.on('message', (msg) => {
+//     appendMessage(msg, 'incoming')
+//     scrollToBottom()
+// })
+// function scrollToBottom() {
+//     messageArea.scrollTop = messageArea.scrollHeight
+// }
+
+/***/ }),
+
+/***/ "./resources/js/chat.js":
+/*!******************************!*\
+  !*** ./resources/js/chat.js ***!
+  \******************************/
+/*! exports provided: initChat */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initChat", function() { return initChat; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
+/* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function initChat(socket) {
+  var name;
+  var textarea = document.querySelector('#textarea');
+  var messageArea = document.querySelector('.message__area');
+
+  do {
+    name = prompt('Please enter your name: ');
+  } while (!name);
+
+  textarea.addEventListener('keyup', function (e) {
+    if (e.key === 'Enter') {
+      sendMessage(e.target.value);
+    }
+  });
+
+  function sendMessage(message) {
+    var msg = {
+      user: name,
+      message: message.trim()
+    }; // Append 
+
+    appendMessage(msg, 'outgoing');
+    textarea.value = '';
+    scrollToBottom(); // Send to server 
+
+    socket.emit('message', msg);
+  }
+
+  function appendMessage(msg, type) {
+    var mainDiv = document.createElement('div');
+    var className = type;
+    mainDiv.classList.add(className, 'message');
+    var markup = "\n        <h4>".concat(msg.user, "</h4>\n        <p>").concat(msg.message, "</p>\n    ");
+    mainDiv.innerHTML = markup;
+    messageArea.appendChild(mainDiv);
+  } // Recieve messages 
+
+
+  socket.on('message', function (msg) {
+    appendMessage(msg, 'incoming');
+    scrollToBottom();
+  });
+
+  function scrollToBottom() {
+    messageArea.scrollTop = messageArea.scrollHeight;
+    console.log(fuckkk);
+  }
+}
 
 /***/ }),
 

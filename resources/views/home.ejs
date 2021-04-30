@@ -2,7 +2,7 @@
     <div class="container mx-auto flex items-center justify-between">
         <div class="w-1/2">
                 <h5 class="text-4xl"><em>Ready for a MEAL?</em></h5>
-                <h1 class="text-7xl font-bold">Then <button class="px-6 py-2 rounded-full text-white font-boldmt-4 btn-primary"> Order NOW!</button> </h1>
+                <h1 class="text-4xl md:text-7xl font-bold">Then <button class="px-6 py-2 rounded-full text-white font-boldmt-4 btn-primary"> Order NOW!</button> </h1>
                 
         </div>
         <div class="w-1/2">
@@ -17,7 +17,7 @@
 <section class="menu container mx-auto py-8"> 
     <h1 class="text-xl font-bold mb-8">Indian</h1>
 
-    <div class="grid grid-cols-4 col-gap-12 row-gap-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-20">
 
     <% dishes.forEach(function(dish) {%>
     <% if(dish.class === "Indian"){ %>
@@ -45,8 +45,8 @@
     <section class="menu container mx-auto py-8"> 
         <h1 class="text-xl font-bold mb-8">Chineese</h1>
 
-        <div class="grid grid-cols-4 col-gap-12 row-gap-20">
-               <% dishes.forEach(function(dish) {%>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-20">
+            <% dishes.forEach(function(dish) {%>
     <% if(dish.class === "Chineese"){ %>
        
         <div class="w-64">
@@ -71,11 +71,11 @@
 <section class="menu container mx-auto py-8"> 
     <h1 class="text-xl font-bold mb-8">Italian</h1>
 
-    <div class="grid grid-cols-4 col-gap-12 row-gap-20">
-           <% dishes.forEach(function(dish) {%>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-20">
+        <% dishes.forEach(function(dish) {%>
 <% if(dish.class === "Italian"){ %>
    
-    <div class="w-64">
+    <div class="w-full md:w-64">
         <img src="/img/<%= dish.image %>" class="h-40 mb-4 mx-auto" alt="uh oh! Image not found">
         <div class="text-center">
             <h2 class="mb-4 text-lg"><%= dish.name %></h2>
@@ -97,8 +97,8 @@
 <section class="menu container mx-auto py-8"> 
     <h1 class="text-xl font-bold mb-8">Thai</h1>
 
-    <div class="grid grid-cols-4 col-gap-12 row-gap-20">
-           <% dishes.forEach(function(dish) {%>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-20">
+        <% dishes.forEach(function(dish) {%>
 <% if(dish.class === "Thai"){ %>
    
     <div class="w-64">

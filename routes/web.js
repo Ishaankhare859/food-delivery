@@ -10,6 +10,10 @@ const guest = require('../app/http/middleware/guest')
 const auth = require('../app/http/middleware/auth')
 const admin = require('../app/http/middleware/admin')
 
+//chat
+const chatController = require("../app/http/controllers/chatController");
+const adminchatController = require("../app/http/controllers/admin/adminchatController");
+
 
 function initRoutes(app){
     app.get("/",homeController().index);    
@@ -22,8 +26,11 @@ function initRoutes(app){
     app.post('/orders',auth, orderController().store);
     app.get('/customers/orders',auth,orderController().index);
     app.get('/customers/orders/:id',auth,orderController().show);
+//chat
+app.get('/chat/:id',auth,chatController().index);
+//adminchat
 
-
+app.get('/adminchat/:id',auth,adminchatController().index);
 
     app.get("/cart",cartController().index);
     app.post('/update-cart', cartController().update)
