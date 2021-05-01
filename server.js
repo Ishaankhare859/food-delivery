@@ -67,7 +67,7 @@ const PORT = process.envPORT || 3002;
 
 require('./routes/web')(app);
 app.use((req,res)=>{
-    res.status(404).render('errors/404');
+    res.status(404).render('cd errors/404');
 })
 const server= app.listen(PORT, ()=>{
     console.log(`server started on ${ PORT }`);
