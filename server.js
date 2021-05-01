@@ -12,8 +12,7 @@ const passport = require('passport');
 const Emitter = require('events')
 dotenv.config();
 //database connection
-const url = 'mongodb+srv://ishaan:pr25jNshausztS0R@cluster0.vuhnr.mongodb.net/fooddelivery?retryWrites=true&w=majority';
-mongoose.connect(url,{useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology:true, useFindAndModify:true});
+mongoose.connect(process.env.Mongo_URL,{useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology:true, useFindAndModify:true});
 const  connection = mongoose.connection;
 connection.once('open', ()=>{
     console.log('connected');
@@ -35,7 +34,7 @@ app.use(session({
     secret: process.env.COOKIES_SECRET,
     store: Mongodbstore.create({
         //mongoUrl: url, collection: 'sessions' 
-      mongoUrl:  url,
+      mongoUrl:  process.env.Mongo_URL,
             collection: 'sessions'
     }),
     resave: false,
@@ -67,7 +66,9 @@ app.set('view engine', 'ejs');
 const PORT = process.envPORT || 3002;
 
 require('./routes/web')(app);
-
+app.use((req,res)=>{
+    res.status(404).render('errors/404');
+})
 const server= app.listen(PORT, ()=>{
     console.log(`server started on ${ PORT }`);
 });
