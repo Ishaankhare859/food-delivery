@@ -144,7 +144,7 @@ let chatareaPath = window.location.pathname;
 console.log(chatareaPath);
 if(chatareaPath.includes('chat')){
     initChat(socket)
-    socket.emit('join', `chat_${order._id}`);
+    socket.emit('join', `chat`);
     
 
 }

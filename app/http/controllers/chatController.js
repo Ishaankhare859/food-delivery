@@ -8,8 +8,8 @@ function chatController(){
              
             if(req.user._id.toString() === order.customerId.toString()){
 
-                const eventEmitter = req.app.get('eventEmitter');
-                eventEmitter.emit('message', {id:order._id})
+                // const eventEmitter = req.app.get('eventEmitter');
+                // eventEmitter.emit('message', {id:order._id})
               return  res.render('chat', {order: order})
             }
             else{

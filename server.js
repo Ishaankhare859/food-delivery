@@ -63,7 +63,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(flash());
 app.set('views', path.join(__dirname, '/resources/views'))
 app.set('view engine', 'ejs');
-const PORT = process.envPORT || 3003;
+const PORT = process.envPORT || 3002;
 
 require('./routes/web')(app);
 app.use((req,res)=>{
@@ -90,22 +90,21 @@ eventEmitter.on('orderPlaced', (data)=>{
 
     io.to('adminRoom').emit('orderPlaced', data)
 })
-eventEmitter.on('message', (msg)=>{
+// eventEmitter.on('message', (msg)=>{
  
-    io.to(`chat_${msg.id}`).emit('message', msg)
+//     io.to(`chat_${msg.id}`).emit('message', msg)
    
-    console.log(msg.id)
-    console.log(msg.id)
-    console.log(msg.id)
-  // socket.broadcast.emit('message', msg)
+//     console.log(msg.id)
+//     console.log(msg.id)
+//     console.log(msg.id)
+//   // socket.broadcast.emit('message', msg)
 
 
-}) 
+// }) 
 io.on('connection', (socket) => {
-
+    console.log('Connected...')
     socket.on('message', (msg) => {
-      
         socket.broadcast.emit('message', msg)
     })
 
- })
+})

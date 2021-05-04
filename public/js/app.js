@@ -27094,7 +27094,7 @@ console.log(chatareaPath);
 
 if (chatareaPath.includes('chat')) {
   Object(_chat__WEBPACK_IMPORTED_MODULE_3__["initChat"])(socket);
-  socket.emit('join', "chat_".concat(order._id));
+  socket.emit('join', "chat");
 }
 
 socket.on('orderUpdated', function (data) {
@@ -27170,7 +27170,7 @@ function initChat(socket) {
     var mainDiv = document.createElement('div');
     var className = type;
     mainDiv.classList.add(className, 'message');
-    var markup = "\n        <h4>".concat(msg.user, "</h4>\n        <p>").concat(msg.message, "</p>\n    ");
+    var markup = "\n            <h4>".concat(msg.user, "</h4>\n            <p>").concat(msg.message, "</p>\n        ");
     mainDiv.innerHTML = markup;
     messageArea.appendChild(mainDiv);
   } // Recieve messages 
@@ -27183,7 +27183,6 @@ function initChat(socket) {
 
   function scrollToBottom() {
     messageArea.scrollTop = messageArea.scrollHeight;
-    console.log(fuckkk);
   }
 }
 
