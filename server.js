@@ -104,6 +104,7 @@ eventEmitter.on('orderPlaced', (data)=>{
 io.on('connection', (socket) => {
     console.log('Connected...')
     socket.on('message', (msg) => {
+    console.log(msg.id);
         socket.broadcast.emit('message', msg)
     })
 

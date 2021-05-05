@@ -3,7 +3,7 @@ import moment from 'moment'
 import Noty from 'noty'
 export function initChat(socket){
 
-
+  
     let name;
     let textarea = document.querySelector('#textarea')
     let messageArea = document.querySelector('.message__area')
@@ -20,7 +20,7 @@ export function initChat(socket){
     function sendMessage(message) {
         let msg = {
             user: name,
-            message: message.trim()
+            message: message.trim(),
         }
         // Append 
         appendMessage(msg, 'outgoing')
